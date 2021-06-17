@@ -7,13 +7,13 @@ class OrderController {
     }
 
     async store(request, response) {
-        const { table, description } = request.body;
+        const { table, description, status } = request.body;
 
         if (!table || !description) {
             return response.sendStatus(400);
         }
 
-        const order = await Order.create({ table, description });
+        const order = await Order.create({ table, description, status });
 
         request.io.emit('newOrder', order)
 

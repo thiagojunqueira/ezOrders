@@ -1,20 +1,20 @@
 import GlobalStyle from "./styles/globalStyle";
-
 import { Container } from './styles/index'
 import Orders from './components/Orders'
-import logo from './images/logo.svg'
+import Header from './components/Header'
+import { OrdersProvider } from './contexts/OrdersContext'
 
 function App() {
   return (
-    <>
+    <OrdersProvider>
       <GlobalStyle />
 
       <Container>
-        <img src={logo} alt="ezOrders" />
+        <Header />
         <Orders />
       </Container>
-
-    </>
+      
+    </OrdersProvider>
   );
 }
 
