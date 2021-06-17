@@ -35,7 +35,7 @@ class OrderController {
                 { new: true, runValidators: true }
             );
 
-            request.io.emit('statusChange', order)
+            request.io.emit('statusChange', order);
             return response.json(order);
         } catch (err) {
             return response.sendStatus(500);
